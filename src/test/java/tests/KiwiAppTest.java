@@ -24,7 +24,7 @@ public class KiwiAppTest {
 
         // misafir olarak devam et e tiklanir
         page.misafirButonu.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         // ardinda gelecek olan 3 adimada yesil butona basilarak devam edilir
         for (int i = 0; i < 3; i++) {
@@ -53,10 +53,30 @@ public class KiwiAppTest {
         page.chooseButton.click();
 
         // varis ulkesi secenegine tiklanir ve gidilecek ulke girilir
-        // gidis tarihi eylul ayinin 21 i olarak secilir ve set date e tiklanir
+        ReusableMethods.koordinatTiklamaMethodu(311,921);
+        driver.getKeyboard().pressKey("Antalya");
+        ReusableMethods.koordinatTiklamaMethodu(292,289);
+        page.chooseButton.click();
+
+        // gidis tarihi mart ayinin 30 i olarak secilir ve set date e tiklanir
+        ReusableMethods.koordinatTiklamaMethodu(424,1052);
+        ReusableMethods.koordinatTiklamaMethodu(968,1333);
+        page.setDateButton.click();
+
         // search butonuna tiklanir
+        page.searchButton.click();
+
         // en  ucuz ve aktarmasiz filtrelemeleri yapilir
+        ReusableMethods.koordinatTiklamaMethodu(270,259);
+        ReusableMethods.koordinatTiklamaMethodu(522,595);
+        ReusableMethods.koordinatTiklamaMethodu(522,259);
+        ReusableMethods.koordinatTiklamaMethodu(431,1458);
+
+        Thread.sleep(3000);
+
         // gelen bilet fiyati kaydedilir ve kullanicin telefonuna sms olarak gonderilir
+        String enUcuzTicket = page.enUcuzTicket.getText();
+        driver.sendSMS("00905392620331", "Ahanda Bilet!");
 
     }
 

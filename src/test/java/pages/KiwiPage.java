@@ -19,4 +19,13 @@ public class KiwiPage {
     @FindBy(xpath = "//*[@text='Choose']")
     public WebElement chooseButton;
 
+    @FindBy(id = "com.skypicker.main:id/saveButton")
+    public WebElement setDateButton;
+
+    @FindBy(xpath = "(//*[@text='Search'])[1]")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "(//*[@class='android.widget.TextView'])[12]")
+    public WebElement enUcuzTicket;
+
 }

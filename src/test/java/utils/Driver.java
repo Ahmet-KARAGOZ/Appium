@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -31,8 +32,8 @@ public class Driver {
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ANDROIDVERSION);
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM);
             caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, OTOMASYON_ISMI);
-            caps.setCapability("appPackage","com.skypicker.main");
-            caps.setCapability("appActivity","com.kiwi.android.feature.splash.impl.ui.SplashActivity");
+            caps.setCapability("appPackage","com.smartwho.SmartAllCurrencyConverter");
+            caps.setCapability("appActivity","com.smartwho.SmartAllCurrencyConverter.CurrencyConverter");
             caps.setCapability(MobileCapabilityType.NO_RESET,false);
             /* eger bu capability FALSE olarak kullanilirsa,uygulama test edildikten sonra her seferinde kullanici datalari temizlenir ve
             uygulamanin ilk install haline dondurulur
@@ -42,6 +43,7 @@ public class Driver {
                 assert appiumServerURL != null;
                 appiumDriver = new AndroidDriver<AndroidElement>(appiumServerURL,caps);
                 appiumDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
             }else {
                 assert appiumServerURL != null;
                 iosDriver = new IOSDriver<IOSElement>(appiumServerURL,caps);
